@@ -23,6 +23,7 @@ Swoole\Network\Server::start(function ()
 
     Swoole\Error::$echo_html = false;
     $server = Swoole\Network\Server::autoCreate('0.0.0.0', 8888);
+    $server->addListener("0.0.0.0",9502,SWOOLE_SOCK_TCP);
     $server->setProtocol($AppSvr);
     //$server->daemonize(); //作为守护进程
     $server->run(
